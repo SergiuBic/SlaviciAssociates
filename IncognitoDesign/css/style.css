@@ -1,0 +1,264 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+html:not(#button):not(.container) {
+  scroll-behavior: smooth;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #d35400;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.upper {
+  text-transform: uppercase !important;
+}
+.hidden{
+  display: none !important;
+}
+
+/* Gallery style */
+
+.wrapper_gallery{
+	width: 100%;
+}
+
+#modal1{
+  width: 60%;
+}
+
+
+#modal2{
+  width: 60%;
+}
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 1; 
+  
+  -webkit-column-count: 4;
+  -webkit-column-gap:   1px;
+  -moz-column-count:    4;
+  -moz-column-gap:      1px;
+  column-count:         4;
+  column-gap:           1px;
+}
+
+#photos img {
+ /* Just in case there are inline attributes */
+ width: 80% !important;
+ height: auto !important;
+ min-width: 50px;
+ min-height: 50px;
+ opacity: 0;
+ transition: opacity 2s;
+}
+
+@media (max-width: 1200px) {
+ #photos {
+ -moz-column-count:    3;
+ -webkit-column-count: 3;
+ column-count:         3;
+ }
+}
+@media (max-width: 1000px) {
+ #photos {
+ -moz-column-count:    3;
+ -webkit-column-count: 3;
+ column-count:         3;
+ }
+ .row .col.s5{
+  width:100%;
+}
+}
+@media (max-width: 800px) {
+ #photos {
+ -moz-column-count:    3;
+ -webkit-column-count: 3;
+ column-count:         3;
+ }
+ .row .col.s5{
+   width:100%;
+ }
+}
+@media (max-width: 400px) {
+ #photos {
+ -moz-column-count:    3;
+ -webkit-column-count: 3;
+ column-count:         3;
+ }
+ .row .col.s5{
+  width:100%;
+}
+}
+
+@media (max-width: 800px) {
+ #modal1{
+   transform: scaleX(1.4) scaleY(1.2);
+
+ }
+ .modal-content{
+   padding:17px;
+ }
+ .modal-content .row img{
+   width: 103%;
+ }
+}
+@media (max-width: 400px) {
+ #modal1{
+   transform: scaleX(1.4) scaleY(1.2);
+
+ }
+ .modal-content{
+   padding:17px;
+ }
+ .modal-content .row img{
+   width: 103%;
+ }
+}
+
+
+/* Media Queries */
+
+.people-say .collection, .people-say .collection .collection-item {
+  border:0px;
+}
+
+/* Cool Anime*/
+.itt {
+  font-style:italic;
+  
+}
+
+#main-title{
+  margin-bottom:0px !important;
+}
+
+/*Back2top*/
+#button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for the content section */
+
+.content {
+  width: 77%;
+  margin: 50px auto;
+  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  color: #6c767a;
+  line-height: 1.9;
+}
+@media (min-width: 500px) {
+  .content {
+    width: 43%;
+  }
+  #button {
+    margin: 30px;
+  }
+}
+.content h1 {
+  margin-bottom: -10px;
+  color: #03a9f4;
+  line-height: 1.5;
+}
+.content h3 {
+  font-style: italic;
+  color: #96a2a7;
+}
+
+.strongme{
+  font-style:bold;
+}
+
+p.light{
+  font-weight:600 !important;
+  line-height: 20px;
+}
+
+span.strongme.teal-text{
+  font-size:16px;
+}
