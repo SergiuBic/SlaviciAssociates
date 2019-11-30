@@ -4,11 +4,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Slavici Cenei</title>
-
+  
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
   <script>
@@ -27,24 +29,61 @@
     var elems = document.querySelectorAll('.slider');
     var instances = M.Slider.init(elems, {indicators: true, duration: 1300});
   });
+
+  $(document).ready(function(){
+    //$('.pushpin').pushpin();
+    $('.pushpin-demo-nav').each(function() {
+    var $this = $(this);
+    var $target = $('#' + $(this).attr('data-target'));
+    $this.pushpin({
+      top: $target.offset().top,
+      bottom: $target.offset().top + $target.outerHeight() - $this.height()
+    });
+  });
+
+  setInterval(doSomething,500);
+
+    function doSomething(){
+      if($("[data-target='purple']").hasClass("pinned")){
+        $("[data-target='brown']").css("opacity","0");
+      }else{
+        $("[data-target='brown']").css("opacity",".7");
+      }
+    }
+
+
+    var btn = $('#button');
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '100');
+});
+
+  });
+        
+
   </script>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">  
-
-      <ul class="right hide-on-med-and-down myalertborder ">
-        <li><a href="#" class="pulse">#UnderConstruction</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav myalertborder ">
-        <li><a href="#" class="pulse">#UnderConstruction</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <!-- Back to top button -->
+<a id="button"></a>
+  <div id="blue" class="block">
+      <nav class="pushpin-demo-nav pin-top" data-target="blue" style="top: 0px;">
+          <div class="nav-wrapper">
+            <div class="container">
+      <a href="#" class="brand-logo white-text">&nbsp;</a></div>
     </div>
   </nav>
 
+
+
   <div id="index-banner" class="parallax-container" >
-    <div class="section " >
-      <div class="container "  >
+    <div class="section ">
+      <div class="container ">
         <div id="mycooltitle">
           <h1 class="logo">
               <span class="word1">Slavici</span>
@@ -61,7 +100,7 @@
     <div class="section">
       <!--   Icon Section   -->
       <div class="row">
-
+          <div class="sibling-fade">
         <div class="col s3">
             <a href="#gopensiune" id="agro" >
           <div class="icon-block hoverable center">
@@ -110,20 +149,28 @@
           </div>
           </a>
         </div>
-       
+       </div>
       </div>
 
     </div>
   </div>
-
+</div>
 
   <!--PENSIUNE-->
 
+  <div id="red" class="block darken-4">
+      <nav class="pushpin-demo-nav pin-top" data-target="red" style="top: 0px;">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" id="gopensiune" class="brand-logo white-text">Agropensiune</a>
+          </div>
+        </div>
+      </nav>
+ 
+
 <div class="container">
     <div class="section">
-        <div class="row center " id="gopensiune">
-          <h3 class="header col s12" id="agropensiuneheader" >Agropensiune</h3>
-    </div>
+
         <div class="slider" >
           <ul class="slides">
             <li>
@@ -165,21 +212,32 @@
     </div>
     <div class="col s6">
         <div class="center">
-          <i class="material-icons large blue-text">pool</i>
+          <i class="material-icons large blue-text">restaurant</i>
           <h5 class="center">Bed &amp; Breakfast</h5>
           <p class="light center">B&amp;B. Our services includes a nice restaurant, conference room. <br/> Do you play Basketball or Tennis? We have a night field set up!<br/> You can always relax at the pool or check out our BIO greenhouse.</p>
         </div>
       </div>
     </div>
   </div></div>
+</div>
+
+  <div id="brown" class="block darken-4">
+      <nav class="pushpin-demo-nav pin-top" data-target="brown" style="top: 0px;">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" id="goatelier" class="brand-logo white-text">Atelier</a>
+          </div>
+        </div>
+      </nav>
+
 
  <!--Atelier-->
   <div class="container">
+     
     <div class="section">
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4 id="atelier">Atelier</h4>
+         
           <p class="light center large" id="goatelier" style="font-size:25px;">Fabricăm peleți și bricheți. Atelier de confecții metalice.</p>
           <div class="slider" >
               <ul class="slides">
@@ -193,15 +251,12 @@
                     <img src="./img/23.jpg"> <!-- random image -->
                 </li>
                 <li><img src="./img/24.jpg"></li>
-                <li><img src="./img/3.jpg"></li>
                 <li><img src="./img/26.jpg"></li>
                 <li><img src="./img/27.jpg"></li>
                 <li><img src="./img/28.jpg"></li>
                 <li><img src="./img/30.jpg"></li>
-                <li><img src="./img/39.jpg"></li>
-                <li>
-                <img src="./img/8.jpg"><!-- random image -->
-                </li>
+          
+     
               </ul>
             </div>
             <div class="divider" style="height: 50px; background-color: transparent;"></div>
@@ -221,29 +276,60 @@
 
     </div>
   </div>
+</div>
+
+  <div id="purple" class="block darken-4">
+      <nav class="pushpin-demo-nav pin-top" data-target="purple" style="top: 0px;">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" id="gohala" class="brand-logo white-text">Hală industrială</a>
+          </div>
+        </div>
+      </nav>
 
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">TBA</h5>
+          <h1 class="header col s12 light"></h1>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="./img/29.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="./img/4.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
-  <footer class="page-footer teal">
-    <div class="container">
+  <div class="container">
+    <div class="section">
       <div class="row">
+        <div class="col s12 center">
+          <h1><i class="mdi-content-send brown-text">Hale industriale de închiriat</i></h1>
+          <i class="material-icons  green-text">local_phone</i><p>Telefon: </p>
+          <div class="slider" >
+              <ul class="slides">
+                <li>
+                    <img src="./img/2.jpg"><!-- random image -->
+                </li>
+                <li>
+                    <img src="./img/3.jpg"> <!-- random image -->
+                </li>
+                <li>
+                    <img src="./img/4.jpg"> <!-- random image -->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="page-footer mygrey">
+    <div class="container">
+      <div class="row center">
   
-          <h5 class="white-text">Connect</h5>
+          <p class="white-text">	&copy; Slavici Cenei 2020</p>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+        
           </ul>
         </div>
       </div>
