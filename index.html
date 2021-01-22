@@ -262,7 +262,105 @@ btn.on('click', function(e) {
       <div class="col s12">
       <div class="center">
         <i class="material-icons large brown-text">money</i>
-        <h5 class="center">Investitii</h5>
+        <h5 class="center" id="InvestitiiMaster">Investitii</h5>
+
+
+
+<script> 
+fetch('https://slavicidashboard.herokuapp.com/')
+  .then(response => response.json())
+  .then(data => { 
+  const myData = data
+  const dataLength = myData.length-1
+  console.log(myData[1])
+  /* start working here at the table */
+  for(let i=dataLength; i >= 1; i--){
+ 
+  let tempTable = document.createElement("table")
+      tempTable.id = "investitii" + i
+      tempTable.style.width = "100%"
+      tempTable.style.maxWidth = "100%"
+      tempTable.border = "1"
+      tempTable.classList.add("tabeleInvestitii")
+
+  let tempTbody = document.createElement("tbody")
+      tempTable.append(tempTbody)
+  
+  let tempTr1 = document.createElement("tr")
+  let tempTd1 = document.createElement("td")
+      tempTd1.colSpan = "2"
+      tempTd1.bgColor= "#D7D7D7"
+      tempTd1.id = "titlu" + i
+      tempTbody.append(tempTr1)
+      tempTr1.append(tempTd1)
+  
+  let tempTr2 = document.createElement("tr")
+  let tempTd2 = document.createElement("td")
+      tempTd2.style.width = "50%"
+      tempTd2.id = "descriere" + i
+      tempTbody.append(tempTr2)
+      tempTr1.after(tempTr2)
+      tempTr2.append(tempTd2)
+
+  let tempTd3 = document.createElement("td")
+      tempTd3.innerHTML = "Fisiere atasate:<br/>"
+  let tempblockquote = document.createElement("blockquote")
+      tempTd3.append(tempblockquote)
+  let tempp = document.createElement("p")
+      tempp.id = "CustomLinks" + i
+      tempblockquote.append(tempp)
+
+      tempTr2.append(tempTd3)
+      tempTd2.after(tempTd3)
+      
+      document.querySelector("body").append(tempTable)
+      document.querySelector("h5#InvestitiiMaster").after(tempTable)
+  }
+
+  //fill the tables
+  for(let i=1; i <= document.querySelectorAll(".tabeleInvestitii").length; i++){
+    //BluePrint
+    /***********
+     *   console.log(myData["1"][i])
+     * 
+     * 
+    */
+    //Titluri
+    document.querySelector("td#titlu"+(i)).innerHTML += `
+    ${myData[i.toString()][1]}
+    `
+
+    //Descrieri
+    document.querySelector("td#descriere"+(i)).innerHTML += `
+    ${myData[i.toString()][2]}
+    `
+    //Link-uri
+    let tempNrLinks = myData[i.toString()].splice(3)
+    let numarLinkuri = tempNrLinks.length
+    for ( let l = 0; l < numarLinkuri; l++){
+        let tempA = document.createElement("a")
+            tempA.setAttribute('href',tempNrLinks[l].toString())
+            tempA.setAttribute('target','_blank')
+        let tempFileName = tempNrLinks[l].toString().split("/")
+        let tempSTRFileName = `
+        ${tempFileName[tempFileName.length-1].toString().replace(".pdf","")}<br/>
+        `
+        let tempSTRFileName2 = tempSTRFileName.replace(/_/g," ");
+        let tempSTRFileName3 = tempSTRFileName2.replace(/%20/g," ");
+
+            tempA.innerHTML = tempSTRFileName3
+
+    document.querySelector("p#CustomLinks"+(i)).append(tempA)
+
+    }
+
+  }
+  /*tables end here*/
+  })
+
+
+</script>
+<div class="ToBeHiddenItsDynamicNow" id="justabackup" style="display: none!important;">
          <table width="100%" border="1" id="investitii">
   <tbody>
     <tr>
@@ -372,6 +470,7 @@ Contact: 0723 071 792</td>
     </tr>
   </tbody>
 </table>
+</div>
 <!-- 11 01 2021 added 1 table - end -->
       </div>
     </div>
